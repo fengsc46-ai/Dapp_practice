@@ -45,7 +45,15 @@ func main() {
 
 	toAddress := common.HexToAddress("0x5d64e34bc67c2cc73da25b7b98f959811bea5851")
 	var data []byte
-	tx := types.NewTransaction(nonce, toAddress, value, gasLimit, gasPrice, data)
+
+	tx := types.NewTx(&types.LegacyTx{
+		Nonce:    nonce,
+		GasPrice: gasPrice,
+		Gas:      gasLimit,
+		To:       &toAddress,
+		Value:    value,
+		Data:     data,
+	})
 
 	chainID, err := client.NetworkID(context.Background())
 	if err != nil {
