@@ -40,12 +40,12 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("name: %s\n", name)         // "name: Golem Network"
-	fmt.Printf("symbol: %s\n", symbol)     // "symbol: GNT"
+	fmt.Printf("name: %s\n", name)         // "name: RCCDemoToken"
+	fmt.Printf("symbol: %s\n", symbol)     // "symbol: RDT"
 	fmt.Printf("decimals: %v\n", decimals) // "decimals: 18"
-	fmt.Printf("wei: %s\n", bal)           // "wei: 74605500647408739782407023"
+	fmt.Printf("wei: %s\n", bal)           // "wei: 9996999999000000000000000"
 	fbal := new(big.Float)
 	fbal.SetString(bal.String())
 	value := new(big.Float).Quo(fbal, big.NewFloat(math.Pow10(int(decimals))))
-	fmt.Printf("balance: %f", value) // "balance: 74605500.647409"
+	fmt.Printf("balance: %f", value) // "balance:9996999.999000"
 }
